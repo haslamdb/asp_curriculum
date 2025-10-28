@@ -460,6 +460,11 @@ if __name__ == '__main__':
     plt.rcParams['axes.linewidth'] = 1.2
     plt.rcParams['xtick.major.width'] = 1.2
     plt.rcParams['ytick.major.width'] = 1.2
+
+    # Make PDFs editable in Adobe Illustrator
+    plt.rcParams['pdf.fonttype'] = 42   # Embed fonts as TrueType (editable)
+    plt.rcParams['ps.fonttype'] = 42
+    plt.rcParams['svg.fonttype'] = 'none'  # For SVGs, keep text as text
     
     # Load data
     print("Loading data...")
