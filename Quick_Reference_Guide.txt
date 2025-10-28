@@ -1,0 +1,245 @@
+QUICK REFERENCE GUIDE: FIGURE GENERATION SCRIPTS
+================================================
+
+OVERVIEW
+--------
+Two Python scripts have been created for generating the manuscript figures:
+
+1. create_figures.py - Original script with all code in one file
+2. generate_figures_modular.py - Modular version with easy-to-modify parameters
+
+Both scripts produce the same three publication-quality figures.
+
+
+WHICH SCRIPT TO USE?
+--------------------
+
+Use generate_figures_modular.py if you want to:
+✓ Easily change colors, fonts, or sizes
+✓ Modify the configuration without touching plotting code
+✓ Add new features or customizations
+✓ Better code organization and readability
+
+Use create_figures.py if you want:
+✓ A single script with everything in one place
+✓ To quickly regenerate figures without modifications
+
+
+RUNNING THE SCRIPTS
+-------------------
+
+Basic usage:
+  python3 generate_figures_modular.py
+
+From anywhere:
+  python3 /mnt/user-data/outputs/generate_figures_modular.py
+
+
+COMMON MODIFICATIONS
+--------------------
+
+1. CHANGE COLORS
+   Edit the COLOR_* variables at the top of generate_figures_modular.py:
+   
+   COLOR_POSITIVE = '#2C7BB6'      # Change blue color
+   COLOR_NEGATIVE = '#D7191C'      # Change red color
+   COLOR_NEUTRAL = '#FFFFBF'       # Change neutral color
+
+   Tip: Use hex color codes from colorbrewer2.org for colorblind-safe palettes
+
+2. CHANGE RESOLUTION
+   Edit DPI variable:
+   
+   DPI = 300    # Standard publication quality
+   DPI = 600    # High-quality print
+   DPI = 150    # Web/screen viewing
+
+3. CHANGE FONT SIZES
+   Edit the font size variables:
+   
+   TITLE_SIZE = 14        # Main titles
+   SUBTITLE_SIZE = 12     # Subtitles
+   LABEL_SIZE = 11        # Axis labels
+   TICK_SIZE = 10         # Tick labels
+   ANNOTATION_SIZE = 9    # Small annotations
+
+4. CHANGE OUTPUT FORMAT
+   By default, figures are saved as PNG. To change to PDF, SVG, or TIFF:
+   
+   Find lines like:
+     plt.savefig(f'{OUTPUT_DIR}Figure1_Leadership_Gap.png', dpi=DPI, ...)
+   
+   Change to:
+     plt.savefig(f'{OUTPUT_DIR}Figure1_Leadership_Gap.pdf', dpi=DPI, ...)
+
+5. UPDATE DATA
+   If you update the Excel file, just run the script again:
+     python3 generate_figures_modular.py
+   
+   The script automatically reads the latest data from:
+     /mnt/user-data/uploads/AS_Survey_Graphs.xlsx
+
+
+UNDERSTANDING THE FIGURES
+--------------------------
+
+FIGURE 1: Leadership Preparedness Gap (composite)
+  Part A: Career funnel showing interest → placement gap
+  Part B: Diverging bar chart for satisfaction across competencies
+  
+  Key insight: High interest, low placement; satisfaction drops for leadership
+
+FIGURE 2: ASP Interventions (dumbbell plot)
+  Compares fellow participation with/without formal curriculum
+  Sorted by gap size (largest differences at top)
+  
+  Key insight: Formal curricula increase participation, especially in education
+
+FIGURE 3: Barriers to Education (horizontal bar chart)
+  Ranked list of barriers to AS education
+  
+  Key insight: Educator time is the primary barrier (44% of programs)
+
+
+TROUBLESHOOTING
+---------------
+
+Problem: Script fails with "No module named 'pandas'"
+Solution: Install required packages:
+  pip install pandas matplotlib seaborn openpyxl --break-system-packages
+
+Problem: Figures look different than expected
+Solution: Check that AS_Survey_Graphs.xlsx is in the correct location:
+  /mnt/user-data/uploads/AS_Survey_Graphs.xlsx
+
+Problem: Colors don't match institutional branding
+Solution: Update COLOR_* variables in generate_figures_modular.py
+  Use hex codes from your institution's brand guidelines
+
+Problem: Text is too small/large
+Solution: Adjust font size variables in configuration section
+
+Problem: Need higher resolution
+Solution: Increase DPI variable (try 600 for very high quality)
+
+
+ADVANCED CUSTOMIZATIONS
+------------------------
+
+1. ADD STATISTICAL SIGNIFICANCE MARKERS
+   In create_figure2(), after plotting bars, add:
+   
+   # Example for p < 0.05
+   ax.text(x_position, y_position, '*', fontsize=16, fontweight='bold')
+
+2. CHANGE FIGURE DIMENSIONS
+   Modify figsize parameter in each figure:
+   
+   fig = plt.figure(figsize=(12, 8))  # width, height in inches
+   
+   Larger = more space for labels
+   Smaller = fits better in manuscripts
+
+3. ADD CONFIDENCE INTERVALS
+   If you have CI data, add error bars to Figure 2:
+   
+   ax.errorbar(values, positions, xerr=error_values, ...)
+
+4. EXPORT TO VECTOR FORMAT FOR EDITING
+   Change output to PDF or SVG for editing in Illustrator:
+   
+   plt.savefig('Figure1.pdf', format='pdf', bbox_inches='tight')
+
+
+INTEGRATING INTO YOUR WORKFLOW
+-------------------------------
+
+For reproducible research:
+
+1. Keep the Excel file updated with latest data
+2. Run generate_figures_modular.py before manuscript submission
+3. All figures automatically regenerate with current data
+4. No manual chart creation needed
+
+For version control:
+
+1. Save the Python script in your project repository
+2. Track changes to the script alongside manuscript
+3. Include figure generation in your analysis pipeline
+4. Document any custom modifications in comments
+
+
+TIPS FOR PUBLICATION
+---------------------
+
+1. Most journals accept PNG at 300-600 DPI
+2. Some prefer TIFF or EPS for vector graphics
+3. Check journal guidelines for:
+   - Required resolution (DPI)
+   - File format preferences
+   - Color space (RGB vs CMYK)
+   - Maximum file size
+
+4. For multi-panel figures:
+   - Keep consistent font sizes across panels
+   - Use same color scheme throughout
+   - Ensure labels are clearly readable at publication size
+
+5. Include comprehensive figure captions:
+   - Describe what each panel shows
+   - State sample size (n=27 programs)
+   - Define abbreviations
+   - Explain any symbols or colors used
+
+
+SUPPORT AND MODIFICATIONS
+--------------------------
+
+The scripts are well-commented and designed to be easily modified.
+Key sections are marked with separator lines (===) for easy navigation.
+
+To request additional features or modifications:
+1. Describe what you want to change
+2. Provide example of desired output (if possible)
+3. Specify which figure(s) need modification
+
+Common requests that are easy to implement:
+- Adding new panels
+- Changing colors or styles
+- Adding annotations or statistical markers
+- Modifying labels or titles
+- Creating supplementary figures
+- Batch processing multiple datasets
+
+
+FILE STRUCTURE
+--------------
+
+Input:
+  /mnt/user-data/uploads/AS_Survey_Graphs.xlsx
+
+Output:
+  /mnt/user-data/outputs/Figure1_Leadership_Gap.png
+  /mnt/user-data/outputs/Figure2_ASP_Interventions_Dumbbell.png
+  /mnt/user-data/outputs/Figure3_Barriers.png
+
+Scripts:
+  /home/claude/create_figures.py (original)
+  /mnt/user-data/outputs/generate_figures_modular.py (modular version)
+
+Documentation:
+  /mnt/user-data/outputs/Figure_Summary_and_Recommendations.txt
+  /mnt/user-data/outputs/Quick_Reference_Guide.txt (this file)
+
+
+NEXT STEPS
+----------
+
+1. Review the generated figures
+2. Test modifications using generate_figures_modular.py
+3. Integrate into your manuscript
+4. Add comprehensive figure captions
+5. Check journal requirements for format and resolution
+
+For questions or custom modifications, describe what you need and 
+provide as much detail as possible about the desired output.

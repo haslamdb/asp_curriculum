@@ -1,0 +1,179 @@
+IMPROVED FIGURES FOR AS SURVEY MANUSCRIPT
+==========================================
+
+I've successfully created three improved figures based on the expert recommendations. Here's what was implemented and some additional suggestions:
+
+FIGURE 1: A National Leadership Preparedness Gap in Pediatric AS Training
+---------------------------------------------------------------------------
+
+This composite figure combines what were previously Figures 1A and 1B into a powerful single visual that tells the complete story of the leadership preparedness gap.
+
+PART A: THE CAREER FUNNEL
+- Shows the dramatic drop-off from fellow interest (~35% of programs report 51-100% of fellows interested) to actual career placement (~11% of programs report 51-100% placed in AS positions)
+- Uses large, bold numbers and visual flow (funnel with arrow) to make the gap immediately apparent
+- Color-coded: Blue for interest (optimistic), Red for career outcomes (concern)
+- Highlights the ~24% gap with a prominent annotation
+
+PART B: THE SATISFACTION GAP (DIVERGING STACKED BAR CHART)
+- Uses best-practice diverging stacked bar chart for Likert scale data
+- Negative responses (dissatisfied) extend left from center
+- Positive responses (satisfied) extend right from center
+- Neutral responses are split at the center line
+- Shows clear visual progression:
+  * "General education/background knowledge": Heavily weighted right (satisfied)
+  * "Ability to use AS in clinical practice": Still positive but slightly less
+  * "Ability to assume a leadership role in AS": Much more balanced, showing the gap
+
+KEY INSIGHT: The visual immediately communicates that while programs are satisfied with foundational knowledge, there's significant concern about leadership preparedness.
+
+
+FIGURE 2: Impact of a Formal Curriculum on Fellow Participation in AS Interventions
+------------------------------------------------------------------------------------
+
+This dumbbell plot (also called connected dot plot) replaces the grouped bar chart.
+
+DESIGN FEATURES:
+- Each AS intervention is listed on the y-axis
+- Two dots per intervention: one for "with curriculum" (blue), one for "without curriculum" (red)
+- Line connecting the dots shows the participation gap
+- Sorted by gap size (largest to smallest) for maximum impact
+- Top 3 gaps are annotated with delta values
+
+KEY FINDINGS HIGHLIGHTED:
+1. Education of residents/faculty: 26.5% gap (largest)
+2. Antibiotic Timeout: 17.6% gap  
+3. Antibiotic Approval: 10.6% gap
+
+ADVANTAGE OVER BAR CHART: The eye is immediately drawn to the length of the connecting lines, making comparisons effortless. You can instantly see which interventions benefit most from a formal curriculum.
+
+
+FIGURE 3: Limited Educator Time is the Primary Barrier to AS Education
+------------------------------------------------------------------------
+
+This simple horizontal bar chart replaces what was Figure 5.
+
+DESIGN FEATURES:
+- Barriers ranked from highest to lowest percentage
+- Clean, uncluttered design focuses attention on the ranking
+- Color gradient (subtle) adds visual interest without distraction
+- Value labels positioned outside bars for easy reading
+- Top barrier (educator time) emphasized with dashed red box
+
+KEY FINDING: "Lack of educator time" is reported by 44.4% of programs - nearly 11 percentage points higher than the next barrier ("Lack of materials" at 33.3%)
+
+RATIONALE FOR SIMPLIFICATION: Since both program types (with/without curriculum) faced similar barriers, comparing them added visual clutter without insight. The simple ranked chart delivers the key message more effectively.
+
+
+ADDITIONAL SUGGESTIONS
+=======================
+
+1. FIGURE LEGENDS AND CAPTIONS
+   - Each figure should have a comprehensive caption explaining:
+     * What the data represents
+     * Sample size (n=27 programs)
+     * Any statistical tests performed
+     * Key takeaways highlighted in the caption
+   
+2. STATISTICAL ANNOTATIONS
+   Consider adding statistical significance markers to Figure 2 (dumbbell plot):
+   - If you have p-values from chi-square or Fisher's exact tests
+   - Mark significant differences with asterisks (*p<0.05, **p<0.01, ***p<0.001)
+   - This would strengthen the argument that formal curricula make a real difference
+
+3. CONSISTENCY IN COLOR SCHEME
+   - Current figures use:
+     * Blue (#2C7BB6) for positive/desired outcomes
+     * Red (#D7191C) for concerns/gaps
+   - This could be standardized across all figures for consistency
+   - Consider using your institution's colors if submitting internally first
+
+4. FIGURE RESOLUTION
+   - All figures are saved at 300 DPI (publication quality)
+   - Suitable for submission to journals
+   - If you need higher resolution (600 DPI) or different format (TIFF, EPS), I can regenerate
+
+5. ALTERNATIVE VISUALIZATION FOR FIGURE 1A
+   If you want an even more dramatic visual for the career funnel:
+   - Consider a Sankey diagram showing the flow from "interested" to "not interested" 
+     and "placed in AS" vs "not placed in AS"
+   - This would show all four quadrants of the relationship
+
+6. DATA TRANSPARENCY
+   Consider adding:
+   - Sample size annotations on each bar/dot
+   - Confidence intervals (if applicable)
+   - Response rate information
+
+7. ACCESSIBILITY
+   Current color schemes should be colorblind-friendly, but consider:
+   - Testing figures with colorblind simulation tools
+   - Adding patterns/textures in addition to colors
+   - Ensuring sufficient contrast for grayscale printing
+
+
+NEXT STEPS
+==========
+
+1. Review the three figures and let me know if you'd like any adjustments:
+   - Color scheme changes
+   - Font sizes
+   - Layout modifications
+   - Additional annotations
+
+2. I can create:
+   - A composite figure with all three panels for a single-page layout
+   - Alternative versions with different color schemes
+   - Vector format versions (SVG, PDF) for easier editing in Illustrator
+
+3. If you provide p-values or additional statistical data, I can add:
+   - Significance markers
+   - Confidence intervals
+   - Additional annotations
+
+4. I can also create supplementary figures if needed:
+   - Detailed breakdown of curriculum content
+   - Implementation methods comparison
+   - Geographic distribution if available
+
+
+TECHNICAL NOTES
+===============
+
+Script: /home/claude/create_figures.py
+- Uses matplotlib and seaborn for publication-quality figures
+- All data extracted directly from AS_Survey_Graphs.xlsx
+- Easily modifiable for future updates or revisions
+- Can regenerate figures with updated data in seconds
+
+The Python script is well-commented and can be:
+- Modified to adjust colors, sizes, or layout
+- Extended to add more figures
+- Used as a template for future data visualizations
+- Integrated into your analysis pipeline
+
+
+FILES CREATED
+=============
+
+1. Figure1_Leadership_Gap.png (323 KB)
+   - Composite figure with career funnel and satisfaction diverging bar chart
+
+2. Figure2_ASP_Interventions_Dumbbell.png (241 KB)
+   - Dumbbell plot showing curriculum impact on interventions
+
+3. Figure3_Barriers.png (165 KB)
+   - Horizontal bar chart of barriers to education
+
+All figures are in PNG format at 300 DPI, suitable for publication.
+
+
+CONCLUSION
+==========
+
+These redesigned figures follow data visualization best practices:
+- Use appropriate chart types for the data (diverging bar for Likert, dumbbell for comparisons)
+- Emphasize the key findings through visual hierarchy
+- Reduce cognitive load by removing unnecessary elements
+- Tell a compelling story that supports your manuscript's argument
+
+The figures now more powerfully communicate your central thesis: while fellows receive adequate foundational AS education, there is a significant gap in preparing them for AS leadership roles, and formal curricula appear to improve fellow engagement in AS interventions.
